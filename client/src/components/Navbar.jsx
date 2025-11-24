@@ -1,5 +1,5 @@
-import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { useAuth } from '../context/AuthContext';
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { useAuth } from "../context/AuthContext";
 
 const Navbar = () => {
   const location = useLocation();
@@ -8,28 +8,19 @@ const Navbar = () => {
 
   const handleLogout = () => {
     logout();
-    navigate('/');
+    navigate("/");
   };
 
+  // Try to scroll to an element with the given id; if it does not exist, navigate to the route
   const scrollToSection = (id) => {
-    if (location.pathname !== '/') {
-      navigate('/');
-      // Wait for navigation and DOM update
-      setTimeout(() => {
-        const element = document.getElementById(id);
-        if (element) {
-          // Small delay to ensure page is rendered
-          setTimeout(() => {
-            element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-          }, 50);
-        }
-      }, 150);
-    } else {
-      const element = document.getElementById(id);
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth", block: "start" });
+      return;
     }
+
+    // No element on the current page — navigate to the matching route (e.g., /about)
+    navigate(`/${id}`);
   };
 
   const isActive = (path) => location.pathname === path;
@@ -38,42 +29,46 @@ const Navbar = () => {
     <nav className="bg-[#1a1a1a] text-white shadow-xl sticky top-0 z-50 border-b border-gray-800">
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center h-16">
-          <button 
-            onClick={() => location.pathname === '/' ? scrollToSection('home') : navigate('/')}
+          <button
+            onClick={() =>
+              location.pathname === "/"
+                ? scrollToSection("home")
+                : navigate("/")
+            }
             className="text-2xl font-bold text-white hover:text-orange-500 transition-colors"
           >
             Portfolio
           </button>
-          
+
           <div className="hidden md:flex space-x-1">
-            {location.pathname === '/' ? (
+            {location.pathname === "/" ? (
               <>
                 <button
-                  onClick={() => scrollToSection('home')}
+                  onClick={() => navigate("/")}
                   className="px-4 py-2 text-sm font-medium text-gray-400 hover:text-orange-500 transition-all duration-300"
                 >
                   Home
                 </button>
                 <button
-                  onClick={() => scrollToSection('about')}
+                  onClick={() => scrollToSection("about")}
                   className="px-4 py-2 text-sm font-medium text-gray-400 hover:text-orange-500 transition-all duration-300"
                 >
                   About
                 </button>
                 <button
-                  onClick={() => scrollToSection('projects')}
+                  onClick={() => scrollToSection("projects")}
                   className="px-4 py-2 text-sm font-medium text-gray-400 hover:text-orange-500 transition-all duration-300"
                 >
                   Projects
                 </button>
                 <button
-                  onClick={() => scrollToSection('skills')}
+                  onClick={() => scrollToSection("skills")}
                   className="px-4 py-2 text-sm font-medium text-gray-400 hover:text-orange-500 transition-all duration-300"
                 >
                   Skills
                 </button>
                 <button
-                  onClick={() => scrollToSection('contact')}
+                  onClick={() => scrollToSection("contact")}
                   className="px-4 py-2 text-sm font-medium text-gray-400 hover:text-orange-500 transition-all duration-300"
                 >
                   Contacts
@@ -83,9 +78,9 @@ const Navbar = () => {
               <>
                 <button
                   onClick={() => {
-                    navigate('/');
+                    navigate("/");
                     setTimeout(() => {
-                      window.scrollTo({ top: 0, behavior: 'smooth' });
+                      window.scrollTo({ top: 0, behavior: "smooth" });
                     }, 150);
                   }}
                   className="px-4 py-2 text-sm font-medium text-gray-400 hover:text-orange-500 transition-all duration-300"
@@ -93,48 +88,50 @@ const Navbar = () => {
                   Home
                 </button>
                 <button
-                  onClick={() => scrollToSection('about')}
+                  onClick={() => navigate("/about")}
                   className={`px-4 py-2 text-sm font-medium transition-all duration-300 ${
-                    isActive('/about') 
-                      ? 'text-orange-500' 
-                      : 'text-gray-400 hover:text-orange-500'
+                    isActive("/about")
+                      ? "text-orange-500"
+                      : "text-gray-400 hover:text-orange-500"
                   }`}
                 >
                   About
                 </button>
                 <button
-                  onClick={() => scrollToSection('projects')}
+                  onClick={() => navigate("/projects")}
                   className={`px-4 py-2 text-sm font-medium transition-all duration-300 ${
-                    isActive('/projects') 
-                      ? 'text-orange-500' 
-                      : 'text-gray-400 hover:text-orange-500'
+                    isActive("/projects")
+                      ? "text-orange-500"
+                      : "text-gray-400 hover:text-orange-500"
                   }`}
                 >
                   Projects
                 </button>
                 <button
-                  onClick={() => scrollToSection('skills')}
+                  onClick={() => navigate("/skills")}
                   className={`px-4 py-2 text-sm font-medium transition-all duration-300 ${
-                    isActive('/skills') 
-                      ? 'text-orange-500' 
-                      : 'text-gray-400 hover:text-orange-500'
+                    isActive("/skills")
+                      ? "text-orange-500"
+                      : "text-gray-400 hover:text-orange-500"
                   }`}
                 >
                   Skills
                 </button>
                 <button
-                  onClick={() => scrollToSection('contact')}
+                  onClick={() => navigate("/contact")}
                   className={`px-4 py-2 text-sm font-medium transition-all duration-300 ${
-                    isActive('/contact') 
-                      ? 'text-orange-500' 
-                      : 'text-gray-400 hover:text-orange-500'
+                    isActive("/contact")
+                      ? "text-orange-500"
+                      : "text-gray-400 hover:text-orange-500"
                   }`}
                 >
                   Contacts
                 </button>
               </>
             )}
-            {isAuthenticated && (
+
+            {/* 🔐 Admin Links */}
+            {isAuthenticated ? (
               <>
                 <Link
                   to="/admin"
@@ -149,6 +146,13 @@ const Navbar = () => {
                   Logout
                 </button>
               </>
+            ) : (
+              <Link
+                to="/admin/login"
+                className="px-4 py-2 text-sm font-medium text-gray-400 hover:text-orange-500 transition-all duration-300"
+              >
+                Admin Login
+              </Link>
             )}
           </div>
         </div>
@@ -158,4 +162,3 @@ const Navbar = () => {
 };
 
 export default Navbar;
-

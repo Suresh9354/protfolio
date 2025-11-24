@@ -115,6 +115,49 @@ body,
   min-height: 100dvh;
 }
 
+/* Utility to help pin footer and make sections reliably fill the viewport */
+.fill-vh {
+  min-height: calc(var(--vh, 1vh) * 100);
+}
+
+/* Slightly larger icon containers at md+ for better visual weight */
+.icon-circle {
+  width: 3rem;
+  height: 3rem;
+}
+
+@media (min-width: 768px) {
+  .icon-circle {
+    width: 4rem;
+    height: 4rem;
+  }
+}
+
+/* Small and inline icon helpers */
+.icon-sm {
+  width: 2rem;
+  height: 2rem;
+}
+
+@media (min-width: 768px) {
+  .icon-sm {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+}
+
+.inline-icon {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .inline-icon {
+    width: 1.75rem;
+    height: 1.75rem;
+  }
+}
+
 /* Smooth scroll for anchor links */
 a[href^="#"] {
   scroll-behavior: smooth;

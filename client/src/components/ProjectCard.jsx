@@ -1,4 +1,4 @@
-import getImageUrl from '../utils/imageUrl';
+import getImageUrl from "../utils/imageUrl";
 
 const ProjectCard = ({ project }) => {
   return (
@@ -17,8 +17,10 @@ const ProjectCard = ({ project }) => {
         <h3 className="text-xl font-bold mb-2 text-white group-hover:text-orange-500 transition-colors">
           {project.title}
         </h3>
-        <p className="text-gray-400 mb-4 line-clamp-3 leading-relaxed">{project.description}</p>
-        
+        <p className="text-gray-400 mb-4 line-clamp-3 leading-relaxed">
+          {project.description}
+        </p>
+
         {project.technologies && project.technologies.length > 0 && (
           <div className="flex flex-wrap gap-2 mb-4">
             {project.technologies.map((tech, index) => (
@@ -41,8 +43,19 @@ const ProjectCard = ({ project }) => {
               className="flex items-center gap-2 px-4 py-2 bg-gray-700 hover:bg-gray-600 text-white font-semibold rounded-lg transition-all duration-300 hover:scale-105 transform"
             >
               <span>GitHub</span>
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+              <svg
+                className="w-4 h-4 text-white"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth={2}
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                />
               </svg>
             </a>
           )}
@@ -54,8 +67,19 @@ const ProjectCard = ({ project }) => {
               className="flex items-center gap-2 px-4 py-2 bg-orange-500 hover:bg-orange-600 text-white font-semibold rounded-lg transition-all duration-300 hover:scale-105 transform shadow-lg"
             >
               <span>Live Demo</span>
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+              <svg
+                className="w-4 h-4 text-white"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth={2}
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                />
               </svg>
             </a>
           )}
@@ -66,4 +90,3 @@ const ProjectCard = ({ project }) => {
 };
 
 export default ProjectCard;
-

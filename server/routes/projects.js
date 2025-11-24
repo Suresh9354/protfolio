@@ -45,7 +45,15 @@ router.post(
   [
     body("title").notEmpty().trim(),
     body("description").notEmpty(),
-    body("technologies").optional().isArray(),
+    // Accept technologies as an array OR a JSON string (because multipart/form-data
+    // sends fields as strings). We'll parse JSON later when building projectData.
+    body("technologies")
+      .optional()
+      .custom((val) => {
+        if (Array.isArray(val)) return true;
+        if (typeof val === "string") return true; // allow JSON string
+        throw new Error("technologies must be an array or a JSON string");
+      }),
   ],
   async (req, res) => {
     try {

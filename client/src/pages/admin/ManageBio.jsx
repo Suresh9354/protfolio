@@ -231,20 +231,50 @@ const ManageBio = () => {
               />
               {/* Show quick actions for the resume link (open in new tab / download) */}
               {(formData.resumeLink || bio?.resumeLink) && (
-                <div className="mt-4 flex gap-3">
+                <div className="mt-4 flex flex-col sm:flex-row gap-3">
                   <a
                     href={formData.resumeLink || bio?.resumeLink}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="px-4 py-2 bg-orange-500 hover:bg-orange-600 text-white rounded-xl font-semibold transition-all"
+                    className="flex items-center gap-2 px-4 py-2 bg-orange-500 hover:bg-orange-600 text-white rounded-xl font-semibold transition-all w-full sm:w-auto justify-center"
                   >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="w-4 h-4 text-white"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      strokeWidth={2}
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M12 4v16m8-8H4"
+                      />
+                    </svg>
                     Open Resume
                   </a>
                   <a
                     href={formData.resumeLink || bio?.resumeLink}
                     download
-                    className="px-4 py-2 bg-gray-700 hover:bg-gray-600 text-white rounded-xl font-semibold transition-all"
+                    className="flex items-center gap-2 px-4 py-2 bg-gray-700 hover:bg-gray-600 text-white rounded-xl font-semibold transition-all w-full sm:w-auto justify-center"
                   >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="w-4 h-4 text-white"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      strokeWidth={2}
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M12 12v8m0-8l-4 4m4-4l4 4"
+                      />
+                    </svg>
                     Download Resume
                   </a>
                 </div>
@@ -264,7 +294,7 @@ const ManageBio = () => {
                 <img
                   src={getImageUrl(bio.image)}
                   alt="Current profile"
-                  className="mt-4 w-32 h-32 object-cover rounded-xl border-2 border-orange-500"
+                  className="mt-4 w-28 h-28 md:w-32 md:h-32 object-cover rounded-xl border-2 border-orange-500"
                 />
               )}
             </div>
