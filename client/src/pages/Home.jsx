@@ -99,8 +99,8 @@ const Home = () => {
 
                   <div className="relative z-10">
                     <img
-                      src={getImageUrl(bio.image)}
-                      alt={bio.name}
+                      src={getImageUrl(bio?.image)}
+                      alt={bio?.name}
                       className="w-56 h-56 md:w-96 md:h-96 rounded-full object-cover border-4 border-orange-500 shadow-2xl"
                     />
                   </div>

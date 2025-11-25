@@ -1,19 +1,18 @@
-// Get the base URL for images
+// src/utils/imageUrl.js
+
 const getImageUrl = (imagePath) => {
-  if (!imagePath) return '';
-  
-  // If imagePath already includes http/https, return as is
-  if (imagePath.startsWith('http://') || imagePath.startsWith('https://')) {
+  if (!imagePath) return "";
+
+  // If imagePath already has a full URL, return directly
+  if (imagePath.startsWith("http://") || imagePath.startsWith("https://")) {
     return imagePath;
   }
-  
-  // Otherwise, construct URL from API base URL
-  const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000/api';
-  const baseUrl = API_URL.replace('/api', '');
-  return `${baseUrl}${imagePath}`;
+
+  // Build full URL using Vercel ENV variable for Render backend
+  const BASE_URL =
+    import.meta.env.VITE_IMAGE_BASE_URL || "http://localhost:5000";
+
+  return `${BASE_URL}${imagePath}`;
 };
 
 export default getImageUrl;
-
-
-
