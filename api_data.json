@@ -1,0 +1,44 @@
+{
+  "bio": {
+    "socialLinks": {
+      "github": "https://github.com/Suresh9354",
+      "linkedin": "https://www.linkedin.com/in/suresh-s-2565b02a2",
+      "twitter": "https://www.linkedin.com/in/suresh-s-2565b02a2",
+      "portfolio": "https://www.linkedin.com/in/suresh-s-2565b02a2"
+    },
+    "_id": "69216f6b1a83e6ed9c739947",
+    "name": "Suresh S",
+    "title": "Full-Stack Web Developer",
+    "description": "Leveraging expertise in full-stack web development, particularly within the MERN stack, with hands-on experience in delivering innovative web solutions. Dedicated to enhancing user experiences through responsive design and real-time features, with a focus on creating transformative applications that integrate modern technologies for impactful digital interactions.",
+    "image": "/uploads/images/image-1765948700808-391359457.png",
+    "resumeLink": "https://drive.google.com/uc?export=download&id=1CqlEVKiR3CuaimP38I7PCLfmPibm7pwr",
+    "email": "suresh22cse@gmail.com",
+    "phone": "+91 9354927361",
+    "location": "coimbatore",
+    "createdAt": "2025-11-22T08:08:11.112Z",
+    "updatedAt": "2025-12-17T05:18:22.837Z",
+    "__v": 0
+  },
+  "projects": [
+    {
+      "_id": "69257925256b5aa1a5b0e108",
+      "title": "Notice Board",
+      "description": "Smart Digital Notice Board",
+      "image": "/uploads/images/image-1764063524841-711745596.png",
+      "technologies": [
+        "react",
+        "node",
+        "express",
+        "mongoDB",
+        "bootstrap 5"
+      ],
+      "githubLink": "https://github.com/Suresh9354/Secure-User-Authentication",
+      "liveLink": "https://college-project-frontend-ushi.onrender.com",
+      "featured": false,
+      "date": "2025-11-25T09:38:45.164Z",
+      "createdAt": "2025-11-25T09:38:45.165Z",
+      "updatedAt": "2025-11-25T09:38:45.165Z",
+      "__v": 0
+    }
+  ]
+}
